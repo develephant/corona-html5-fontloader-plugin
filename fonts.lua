@@ -14,6 +14,7 @@ else
 	end
 
   lib.load = defaultFunction
+  lib.addEventListener = defaultFunction
 end
 
 return lib

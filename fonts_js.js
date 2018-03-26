@@ -3,24 +3,53 @@
 //-----------------------------------------------------------------------------
 window.fonts_js = 
 {
-  load: function(fonts_tbl) {
+  load: function(fonts_tbl, debug) {
+    var debug = debug;
 
-    // var font_script = document.createElement('script');
-    // font_script.setAttribute('src', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js')
-    // document.head.appendChild(font_script)
+    var families = [];
 
+    var fontface = document.createElement('style');
 
-    // font_script.onload = function() {
-    //   var web_fonts = document.createElement('script');
-    //   web_fonts.innerText = "WebFont.load({google: {families: ['Open Sans']}});"
-    //   document.head.appendChild(web_fonts);
+    Object.keys(fonts_tbl).map((family) => {
+      families.push("'"+family+"'");
+      fontface.appendChild(
+        document.createTextNode(
+          "@font-face { font-family: '" + family + "'; src: url('" + fonts_tbl[family] + "'); }"
+        )
+      );
+    });
 
-    //   var style = document.createElement('style');
-    //   style.setAttribute('type', 'text/css');
-    //   style.innerText = '@font-face {font-family: "Open Sans"; src: url("OpenSans-Regular.ttf");}';
-    //   document.head.appendChild(style);
-    // }
+    document.head.appendChild(fontface);
 
-    return true
+    var webfont_js = document.createElement('script');
+    webfont_js.setAttribute('src', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js')
+    document.head.appendChild(webfont_js)
+
+    var plugin = this;
+
+    webfont_js.onload = function() {
+      WebFontConfig = ({
+        custom: {
+          families: [families.join()]
+        },
+        loading: function() {
+          plugin.dispatchEvent({name: 'loading'})
+        },
+        active: function() {
+          plugin.dispatchEvent({name: 'ready'})
+        },
+        inactive: function() {
+          plugin.dispatchEvent({name: 'failed'})
+        },
+        fontactive: function(familyName) {
+          plugin.dispatchEvent({name: 'loaded', data: { family: familyName}})
+        },
+        fontinactive: function(familyName) {
+          plugin.dispatchEvent({name: 'error', data: { family: familyName}})
+        },
+        classes: false
+      })
+      WebFont.load(WebFontConfig);
+    }
   }
 }
