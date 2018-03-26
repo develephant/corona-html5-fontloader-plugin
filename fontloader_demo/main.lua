@@ -1,5 +1,8 @@
-
-local fonts = require("fonts")
+--#############################################################################
+--# Corona HTML5 Custom Font Loader Demo
+--# (c)2018 C. Byerley (develephant)
+--#############################################################################
+local fontloader = require("fontloader")
 
 local function displayText()
   local txtOne = display.newText( "Hello World", 150, 80, "IBMPlexMono", 48 )
@@ -12,11 +15,11 @@ local function onLoadFonts(e)
   end
 end
 
-fonts.addEventListener(onLoadFonts)
+fontloader.addEventListener(onLoadFonts)
 
-local font_tbl = {
+local fonts = {
   Roboto = "Roboto-Regular.ttf",
   IBMPlexMono = "IBMPlexMono-Regular.ttf"
 }
 
-fonts.load(font_tbl)
+fontloader.load(fonts)
