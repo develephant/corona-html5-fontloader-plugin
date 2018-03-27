@@ -1,11 +1,10 @@
 //-----------------------------------------------------------------------------
-// HTML5 Custom Fonts Plugin
+// Corona HTML5 Custom Font Loader Plugin
+// (c)2018 C. Byerley (develephant)
 //-----------------------------------------------------------------------------
-window.fonts_js = 
+window.fontloader_js = 
 {
-  load: function(fonts_tbl, debug) {
-    var debug = debug;
-
+  load: function(fonts_tbl) {
     var families = [];
 
     var fontface = document.createElement('style');
