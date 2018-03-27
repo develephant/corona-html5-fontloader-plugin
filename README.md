@@ -2,6 +2,12 @@
 
 __Custom web font injector plugin for Corona HTML5 projects.__
 
+ ## Browser Tests
+
+|![chrome](icons/chrome.png)|![ie](icons/ie.png)|![firefox](icons/firefox.png)|![safari](icons/safari.png)|![opera](icons/opera.png)|
+|---------------------------|-------------------|-----------------------------|---------------------------|-------------------------|
+|![pass](icons/pass.png)|![untested](icons/untested.png)|![pass](icons/untested.png)|![pass](icons/untested.png)|![untested](icons/pass.png)|
+
 ## Setup
 
 Download the [Font Loader Plugin](https://github.com/develephant/corona-html5-fontloader-plugin/archive/master.zip).
