@@ -77,7 +77,7 @@ fontloader.load(fonts)
 
 ### Other Events
 
-Some other events on teh `name` key you can query are:
+Some other events on the `name` key you can query are:
 
  - `loading`: Called when the font loading starts.
 
