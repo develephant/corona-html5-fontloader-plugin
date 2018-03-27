@@ -79,7 +79,7 @@ fontloader.load(fonts)
 
 Some other events on the `name` key you can query are:
 
- - `loading`: Called when the font loading starts.
+ - `loading`: Called when the fonts start loading.
 
  - `failed`: Could not load any fonts. Big problem somewhere!
 
