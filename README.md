@@ -6,7 +6,7 @@ __Custom web font injector plugin for Corona HTML5 projects.__
 
 |![chrome](icons/chrome.png)|![ie](icons/ie.png)|![firefox](icons/firefox.png)|![safari](icons/safari.png)|![opera](icons/opera.png)|
 |---------------------------|-------------------|-----------------------------|---------------------------|-------------------------|
-|![pass](icons/pass.png)|![untested](icons/untested.png)|![pass](icons/untested.png)|![pass](icons/untested.png)|![untested](icons/pass.png)|
+|![pass](icons/pass.png)|![untested](icons/untested.png)|![pass](icons/pass.png)|![pass](icons/pass.png)|![untested](icons/pass.png)|
 
 ## Setup
 
