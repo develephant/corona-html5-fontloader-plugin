@@ -42,9 +42,11 @@ fontloader.load(fonts)
 
 ## Events
 
-You need to wait until your fonts are all loaded before you can use them. ___You should load your fonts at the start of your project.___
+You need to wait until your fonts are all loaded before you can use them. 
 
-To check that your fonts are all ready set up an event listener:
+___You should load your fonts at the start of your project.___
+
+To check that your fonts are all ready, set up an event listener:
 
 ```lua
 local function displayText()
@@ -54,7 +56,7 @@ end
 
 local function onLoadFonts(evt)
   if evt.name == 'ready' then
-    displayTexts()
+    displayText()
   end
 end
 
@@ -69,11 +71,11 @@ fontloader.load(fonts)
 
 ### Other Events
 
-Some other events you can query are:
+Some other events on teh `name` key you can query are:
 
  - `loading`: Called when the font loading starts.
 
- - `failed`: Could not load any fonts.
+ - `failed`: Could not load any fonts. Big problem somewhere!
 
  - `loaded`: A font has loaded, the name will be in the `data.family` key.
 
@@ -93,7 +95,7 @@ local function onLoadFonts(evt)
   elseif evt.name == 'failed' then
     print("Something bad happened")
   elseif evt.name == 'ready' then
-    displayTexts()
+    displayText()
   elseif evt.name == 'loaded' then
     print("Font "..evt.data.family.." loaded")
   elseif evt.name == 'error' then
