@@ -96,7 +96,7 @@ local function displayText()
 end
 
 local function onLoadFonts(evt)
-  if evt.name == 'loading' the
+  if evt.name == 'loading' then
     print("Loading fonts...")
   elseif evt.name == 'failed' then
     print("Something bad happened")
