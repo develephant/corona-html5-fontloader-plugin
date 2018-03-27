@@ -2,11 +2,9 @@
 
 __Custom web font injector plugin for Corona HTML5 projects.__
 
- ## Browser Tests
+ ## Notice
 
-|![chrome](icons/chrome.png)|![ie](icons/ie.png)|![firefox](icons/firefox.png)|![safari](icons/safari.png)|![opera](icons/opera.png)|
-|---------------------------|-------------------|-----------------------------|---------------------------|-------------------------|
-|![pass](icons/pass.png)|![untested](icons/untested.png)|![pass](icons/pass.png)|![pass](icons/pass.png)|![untested](icons/pass.png)|
+___This plugin is not needed since [Corona](https://coronalabs.com) daily build 2018.3248, but could be some nice code to study if you're building one.___
 
 ## Setup
 
