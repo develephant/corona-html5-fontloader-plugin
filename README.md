@@ -2,7 +2,7 @@
 
 __Custom web font injector plugin for Corona HTML5 projects.__
 
-## Usage
+## Setup
 
 Download the [Font Loader Plugin](https://github.com/develephant/corona-html5-fontloader-plugin/archive/master.zip).
 
@@ -19,11 +19,96 @@ local fontloader = require("fontloader")
 
 ### load
 
+Load in the specified custom fonts for use.
+
 ```lua
 fontloader.load(fonts)
 ```
 
+The `fonts` argument is a table with the font family as the key, and the font source as the value.
+
+__Make sure to include the font source(s) with your HTML5 build.__
+
+__Example__
+
+```lua
+local fonts = {
+  Roboto = "Roboto-Regular.ttf",
+  IBMPlexMono = "IBMPlexMono-Regular.ttf"
+}
+
+fontloader.load(fonts)
+```
+
 ## Events
+
+You need to wait until your fonts are all loaded before you can use them. ___You should load your fonts at the start of your project.___
+
+To check that your fonts are all ready set up an event listener:
+
+```lua
+local function displayText()
+  local txtOne = display.newText( "Hello World", 150, 80, "IBMPlexMono", 48 )
+  local txtTwo = display.newText( "Hello World", 150, 140, "Roboto", 48 )
+end
+
+local function onLoadFonts(evt)
+  if evt.name == 'ready' then
+    displayTexts()
+  end
+end
+
+local fonts = {
+  Roboto = "Roboto-Regular.ttf",
+  IBMPlexMono = "IBMPlexMono-Regular.ttf"
+}
+
+fontloader.addEventListener(onLoadFonts)
+fontloader.load(fonts)
+```
+
+### Other Events
+
+Some other events you can query are:
+
+ - `loading`: Called when the font loading starts.
+
+ - `failed`: Could not load any fonts.
+
+ - `loaded`: A font has loaded, the name will be in the `data.family` key.
+
+ - `error`: A font could not load, the name will be in the `data.family` key.
+
+__Example__
+
+```lua
+local function displayText()
+  local txtOne = display.newText( "Hello World", 150, 80, "IBMPlexMono", 48 )
+  local txtTwo = display.newText( "Hello World", 150, 140, "Roboto", 48 )
+end
+
+local function onLoadFonts(evt)
+  if evt.name == 'loading' the
+    print("Loading fonts...")
+  elseif evt.name == 'failed' then
+    print("Something bad happened")
+  elseif evt.name == 'ready' then
+    displayTexts()
+  elseif evt.name == 'loaded' then
+    print("Font "..evt.data.family.." loaded")
+  elseif evt.name == 'error' then
+    print("Font "..evt.data.family.." could not load")
+  end
+end
+
+local fonts = {
+  Roboto = "Roboto-Regular.ttf",
+  IBMPlexMono = "IBMPlexMono-Regular.ttf"
+}
+
+fontloader.addEventListener(onLoadFonts)
+fontloader.load(fonts)
+```
 
 ___
 
